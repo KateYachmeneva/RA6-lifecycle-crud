@@ -1,6 +1,7 @@
 const createRequest = async({id,payload,method}) => {
     const baseURL = 'http://localhost:7777/notes/';
-    const requestURL = method === 'delete' ? baseURL `${id}` : baseURL
+    const requestURL = method === 'delete' ? baseURL + `${id}` : baseURL;
+    console.log(requestURL);
     const request = await fetch(requestURL, {
         method: method,
         header:{

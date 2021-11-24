@@ -3,9 +3,8 @@ import React, {useRef} from 'react';
 const NotesItem = ({id, text, deleteNote}) => {
   const ref = useRef();
   console.log(ref);
-  const onClickHandler = () => {
-    const {id} = ref.current.dataset;
-    deleteNote(id);
+  const onClickHandler = (id) => {
+      deleteNote(id);
   }
 
   return (
@@ -13,7 +12,7 @@ const NotesItem = ({id, text, deleteNote}) => {
       <div ref={ref} className="card mb-2"  data-id={id}>
         <div className="card-body">
           <p className="card-text">{text}</p>
-          <button className="btn btn-danger" onClick={onClickHandler}>Удалить</button>
+          <button className="btn btn-danger" onClick={() => onClickHandler(id)}>Удалить</button>
         </div>
       </div>
     </div>
